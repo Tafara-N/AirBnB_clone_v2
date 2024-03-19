@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-""" Console Module """
+
+"""
+Console Module
+"""
+
 import cmd
 import sys
 from models.base_model import BaseModel
@@ -216,22 +220,26 @@ class HBNBCommand(cmd.Cmd):
             if args not in HBNBCommand.classes:
                 print("** class doesn't exist **")
                 return
-            for k, v in storage._FileStorage__objects.items():
-                if k.split('.')[0] == args:
-                    print_list.append(str(v))
-        else:
-            for k, v in storage._FileStorage__objects.items():
+            for k, v in storage.all(HBNBCommand.classes[args]).items():
                 print_list.append(str(v))
-
+        else:
+            for k, v in storage.all().items():
+                print_list.append(str(v))
         print(print_list)
 
     def help_all(self):
-        """ Help information for the all command """
+        """
+        Help information for the all command
+        """
+
         print("Shows all objects, or all of a class")
         print("[Usage]: all <className>\n")
 
     def do_count(self, args):
-        """Count current number of class instances"""
+        """
+        Count current number of class instances
+        """
+
         count = 0
         for k, v in storage._FileStorage__objects.items():
             if args == k.split('.')[0]:
@@ -243,7 +251,10 @@ class HBNBCommand(cmd.Cmd):
         print("Usage: count <class_name>")
 
     def do_update(self, args):
-        """ Updates a certain object with new info """
+        """
+        Updates a certain object with new info
+        """
+
         c_name = c_id = att_name = att_val = kwargs = ''
 
         # isolate cls from id/args, ex: (<cls>, delim, <id/args>)
@@ -322,11 +333,13 @@ class HBNBCommand(cmd.Cmd):
 
                 # update dictionary with name, value pair
                 new_dict.__dict__.update({att_name: att_val})
-
         new_dict.save()  # save updates to file
 
     def help_update(self):
-        """ Help information for the update class """
+        """
+        Help information for the update class
+        """
+
         print("Updates an object with new information")
         print("Usage: update <className> <id> <attName> <attVal>\n")
 
