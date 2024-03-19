@@ -20,7 +20,6 @@ class BaseModel:
     created_at = Column(DateTime, nullable=False, default=(datetime.utcnow()))
     updated_at = Column(DateTime, nullable=False, default=(datetime.utcnow()))
 
-
     def __init__(self, *args, **kwargs):
         """
         Instantiates a new model
@@ -54,11 +53,12 @@ class BaseModel:
         """
         Returns a string representation of the instance
         """
-
+        # Testing if this works, if not, put the original back
         # cls = (str(type(self)).split('.')[-1]).split('\'')[0]
-        return '[{}] ({}) {}'.format(type(self).__name__, self.id, self.__dict__) # Testin gif this works, if not, put the original back
+        return '[{}] ({}) {}'.format(type(self).__name__,
+                                        self.id, self.__dict__)
 
-    def __repr__(self): # Added __repr__ method
+    def __repr__(self):  # Added __repr__ method
         """
         Returns a string representaion
         """
@@ -75,7 +75,7 @@ class BaseModel:
         storage.new(self)
         storage.save()
 
-    def to_dict(self): # Updated this: added "_sa_instance_state and"
+    def to_dict(self):  # Updated this: added "_sa_instance_state and"
         # update "created_at/updated_at" methods
         """
         Converts instances into dictionary format
