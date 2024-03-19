@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-This is the user class
+User's class
 """
 
 from sqlalchemy.ext.declarative import declarative_base
