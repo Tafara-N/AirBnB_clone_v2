@@ -17,13 +17,14 @@ class User(BaseModel, Base):
     User's class
 
     Attributes:
-        email: email address
-        password: password to login
-        first_name: first name
-        last_name: last name
+        email: Email address
+        password: Password to login
+        first_name: First name
+        last_name: Last name
     """
 
     __tablename__ = "users"
+
     email = Column(String(128), nullable=False)
     password = Column(String(128), nullable=False)
     first_name = Column(String(128))
