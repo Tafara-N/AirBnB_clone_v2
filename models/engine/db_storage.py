@@ -45,22 +45,22 @@ class DBStorage:
             A dictionary of __object
         """
 
-        dic = {}
+        dictionary = {}
         if cls:
             if type(cls) is str:
                 cls = eval(cls)
             query = self.__session.query(cls)
             for element in query:
                 key = "{}.{}".format(type(element).__name__, element.id)
-                dic[key] = element
+                dictionary[key] = element
         else:
             our_list = [State, City, User, Place, Review, Amenity]
             for clase in our_list:
                 query = self.__session.query(clase)
                 for element in query:
                     key = "{}.{}".format(type(element).__name__, element.id)
-                    dic[key] = element
-        return (dic)
+                    dictionary[key] = element
+        return (dictionary)
 
     def new(self, obj):
         """
