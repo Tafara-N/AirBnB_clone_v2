@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-This is the place class
+Place class
 """
 
 from sqlalchemy.ext.declarative import declarative_base
