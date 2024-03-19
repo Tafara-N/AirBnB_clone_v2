@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""This module defines a base class for all models in our hbnb clone"""
+
+"""
+This module defines a base class for all models in our hbnb clone
+"""
 
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, DateTime
@@ -12,6 +15,11 @@ Base = declarative_base()
 
 class BaseModel:
     """ A base class for all hbnb models """
+# Added the "created_at/updated_at", they were missing
+    id = Column(String(60), unique=True, nullable=False, primary_key=True)
+    created_at = Column(DateTime, nullable=False, default=(datetime.utcnow()))
+    updated_at = Column(DateTime, nullable=False, default=(datetime.utcnow()))
+
 
     def __init__(self, *args, **kwargs):
         """
@@ -43,25 +51,44 @@ class BaseModel:
             self.created_at = self.updated_at = datetime.now()
 
     def __str__(self):
-        """Returns a string representation of the instance"""
-        cls = (str(type(self)).split('.')[-1]).split('\'')[0]
-        return '[{}] ({}) {}'.format(cls, self.id, self.__dict__)
+        """
+        Returns a string representation of the instance
+        """
+
+        # cls = (str(type(self)).split('.')[-1]).split('\'')[0]
+        return '[{}] ({}) {}'.format(type(self).__name__, self.id, self.__dict__) # Testin gif this works, if not, put the original back
+
+    def __repr__(self): # Added __repr__ method
+        """
+        Returns a string representaion
+        """
+        return self.__str__()
 
     def save(self):
-        """Updates updated_at with current time when instance is changed"""
+        """
+        Updates updated_at with current time when instance is changed
+        """
+
         from models import storage
+
         self.updated_at = datetime.now()
         storage.new(self)
         storage.save()
 
-    def to_dict(self):
-        """Convert instance into dict format"""
-        dictionary = {}
-        dictionary.update(self.__dict__)
-        dictionary.update({'__class__':
-                          (str(type(self)).split('.')[-1]).split('\'')[0]})
-        dictionary['created_at'] = self.created_at.isoformat()
-        dictionary['updated_at'] = self.updated_at.isoformat()
+    def to_dict(self): # Updated this: added "_sa_instance_state and"
+        # update "created_at/updated_at" methods
+        """
+        Converts instances into dictionary format
+        """
+
+        dictionary = dict(self.__dict__)
+        dictionary["__class__"] = str(type(self).__name__)
+        dictionary["created_at"] = self.created_at.isoformat()
+        dictionary["updated_at"] = self.updated_at.isoformat()
+
+        if '_sa_instance_state' in dictionary.keys():
+            del dictionary['_sa_instance_state']
+
         return dictionary
 
     def delete(self):
