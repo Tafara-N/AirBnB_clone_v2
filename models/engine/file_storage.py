@@ -1,10 +1,29 @@
 #!/usr/bin/python3
-"""This module defines a class to manage file storage for hbnb clone"""
+
+"""
+This module defines a class to manage file storage for hbnb clone
+"""
+
 import json
+from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
+import shlex
 
 
 class FileStorage:
-    """This class manages storage of hbnb models in JSON format"""
+    """
+    This class manages storage of hbnb models in JSON format
+
+    Attributes:
+        __file_path: path to the JSON file
+        __objects: objects will be stored
+    """
+
     __file_path = 'file.json'
     __objects = {}
 
@@ -12,14 +31,18 @@ class FileStorage:
         """
         Returns a dictionary of models currently in storage
         """
-        if cls is None:
+
+        dct = {}  # Moved dictionary up
+        if cls:
+            dictionary = self.__objects
+            for key in dictionary:
+                partition = key.replace(".", " ")
+                partition = shlex.split(partition)
+                if (partition[0] == cls.__name__):
+                    dct[key] = self.__objects[key]
+            return dct
+        else:
             return self.__objects
-        cls_name = cls.__name__
-        dct = {}
-        for key in self.__objects.keys():
-            if key.split('.')[0] == cls_name:
-                 dct[key] = self.__objects[key]
-        return dct
 
     def new(self, obj):
         """Adds new object to storage dictionary"""
