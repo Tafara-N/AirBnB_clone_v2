@@ -10,6 +10,7 @@ from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, ForeignKey, Integer, Float
 from sqlalchemy.ext.declarative import declarative_base
 
+
 class Review(BaseModel, Base):
     """ Review classto store review information """
 
@@ -21,6 +22,6 @@ class Review(BaseModel, Base):
     user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
 
     # else:
-        # place_id = ""
-        # user_id = ""
-        # text = ""
+    #     place_id = ""
+    #     user_id = ""
+    #     text = ""
