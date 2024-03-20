@@ -56,7 +56,7 @@ class BaseModel:
         # Testing if this works, if not, put the original back
         # cls = (str(type(self)).split('.')[-1]).split('\'')[0]
         return '[{}] ({}) {}'.format(type(self).__name__,
-                                        self.id, self.__dict__)
+                                    self.id, self.__dict__)
 
     def __repr__(self):  # Added __repr__ method
         """
