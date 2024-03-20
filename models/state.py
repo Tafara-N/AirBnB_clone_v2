@@ -1,17 +1,14 @@
 #!/usr/bin/python3
 
 """
-The State class
+The State class for the HBNB project
 """
 
-from sqlalchemy.ext.declarative import declarative_base
+from models import storage_type
 from models.base_model import BaseModel, Base
 from sqlalchemy.orm import relationship
-from sqlalchemy import Column, Integer, String
-import models
+from sqlalchemy import Column, String
 from models.city import City
-import shlex
-
 
 class State(BaseModel, Base):
     """
@@ -22,21 +19,23 @@ class State(BaseModel, Base):
     """
 
     __tablename__ = "states"
+    if storage_type == 'db':
     name = Column(String(128), nullable=False)
-    cities = relationship("City", cascade='all, delete, delete-orphan',
-                          backref="state")
+    cities = relationship('City', backref='state',
+                              cascade='all, delete, delete-orphan')
+else:
+    name = ''
 
     @property
     def cities(self):
-        var = models.storage.all()
-        our_list = []
-        result = []
-        for key in var:
-            city = key.replace('.', ' ')
-            city = shlex.split(city)
-            if (city[0] == 'City'):
-                our_list.append(var[key])
-        for element in our_list:
-            if (element.state_id == self.id):
-                result.append(element)
-        return (result)
+            '''Returns the list of City instances with state_id
+                equals the current State.id
+                Returns FileStorage relationship between State and City
+            '''
+            from models import storage
+            related_cities = []
+            cities = storage.all(City)
+            for city in cities.values():
+                if city.state_id == self.id:
+                    related_cities.append(city)
+            return related_cities

@@ -1,15 +1,13 @@
 #!/usr/bin/python3
 
 """
-The City class
+The City class  for the HBNB project
 """
 
-from sqlalchemy.ext.declarative import declarative_base
 from models.base_model import BaseModel, Base
-from sqlalchemy import Column, Integer, String
-from sqlalchemy import ForeignKey
+from sqlalchemy import Column, ForeignKey, String
 from sqlalchemy.orm import relationship
-from models.place import Place
+from models import storage_type
 
 
 class City(BaseModel, Base):
@@ -22,7 +20,11 @@ class City(BaseModel, Base):
     """
 
     __tablename__ = "cities"
-    name = Column(String(128), nullable=False)
-    state_id = Column(String(60), ForeignKey('states.id'), nullable=False)
-    places = relationship("Place", cascade='all, delete, delete-orphan',
-                          backref="cities")
+    if storage_type == 'db':
+        name = Column(String(128), nullable=False)
+        state_id = Column(String(60), ForeignKey('states.id'), nullable=False)
+        places = relationship('Place', backref='cities',
+                              cascade='all, delete, delete-orphan')
+    else:
+        name = ''
+        state_id = ''
