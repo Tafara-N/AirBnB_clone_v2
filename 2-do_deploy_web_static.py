@@ -7,6 +7,7 @@ Distrubiting archives on the web servers based on the
 
 from fabric.api import put, run, env
 from os.path import exists
+
 env.hosts = ['100.26.159.205', '54.237.14.183']
 
 
