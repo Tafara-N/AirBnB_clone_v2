@@ -31,10 +31,10 @@ def do_clean(number=0):
     archives = sorted(os.listdir("versions"))
     [archives.pop() for _ in range(number)]
     with lcd("versions"):
-        [local("rm ./{}".format(a)) for arch in archives]
+        [local("rm ./{}".format(arch)) for arch in archives]
 
     with cd("/data/web_static/releases"):
         archives = run("ls -tr").split()
         archives = [arch for arch in archives if "web_static_" in arch]
         [archives.pop() for _ in range(number)]
-        [run("rm -rf ./{}".format(a)) for arch in archives]
+        [run("rm -rf ./{}".format(arch)) for arch in archives]
