@@ -499,20 +499,26 @@ H1 tag: “States”
 UL tag: with the list of all State objects present in DBStorage sorted by name (A->Z) tip
 LI tag: description of one State: <state.id>: <B><state.name></B> + UL tag: with the list of City objects linked to the State sorted by name (A->Z)
 LI tag: description of one City: <city.id>: <B><city.name></B>
-Import this 7-dump to have some data
-You must use the option strict_slashes=False in your route definition
-IMPORTANT
+- Import this [7-dump]() to have some data
+- You must use the option `strict_slashes=False` in your route definition
 
-Make sure you have a running and valid setup_mysql_dev.sql in your AirBnB_clone_v2 repository (Task)
-Make sure all tables are created when you run echo "quit" | HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db ./console.py
+## IMPORTANT
+
+- Make sure you have a running and valid `setup_mysql_dev.sql` in your `AirBnB_clone_v2` repository (Task)
+- Make sure all tables are created when you run `echo "quit" | HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db ./console.py`
+
+```
 guillaume@ubuntu:~/AirBnB_v2$ curl -o 7-dump.sql "https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/290/7-states_list.sql"
 guillaume@ubuntu:~/AirBnB_v2$ cat 7-dump.sql | mysql -uroot -p
 Enter password:
 guillaume@ubuntu:~/AirBnB_v2$ HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db python3 -m web_flask.8-cities_by_states
 * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
 ....
+```
+
 In another tab:
 
+```
 guillaume@ubuntu:~$ curl 0.0.0.0:5000/cities_by_states ; echo ""
 <!DOCTYPE html>
 <HTML lang="en">
@@ -669,6 +675,7 @@ guillaume@ubuntu:~$ curl 0.0.0.0:5000/cities_by_states ; echo ""
     </BODY>
 </HTML>
 guillaume@ubuntu:~$
+```
 
 
 **Repo:**
