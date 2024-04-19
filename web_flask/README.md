@@ -893,15 +893,15 @@ guillaume@ubuntu:~/AirBnB_v2$ HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_p
 
 In the browser:
 
-![](https://github.com/Tafara-N/Project-Images/blob/main/AirBnB_clone/images/image_1.jpg)
+![](https://github.com/Tafara-N/Project-Images/blob/main/AirBnB_clone/images/task_12/image_1.jpg)
 
-![](https://github.com/Tafara-N/Project-Images/blob/main/AirBnB_clone/images/image_2.jpg)
+![](https://github.com/Tafara-N/Project-Images/blob/main/AirBnB_clone/images/task_12/image_2.jpg)
 
-![](https://github.com/Tafara-N/Project-Images/blob/main/AirBnB_clone/images/image_3.jpg)
+![](https://github.com/Tafara-N/Project-Images/blob/main/AirBnB_clone/images/task_12/image_3.jpg)
 
-![](https://github.com/Tafara-N/Project-Images/blob/main/AirBnB_clone/images/image_4.jpg)
+![](https://github.com/Tafara-N/Project-Images/blob/main/AirBnB_clone/images/task_12/image_4.jpg)
 
-![](https://github.com/Tafara-N/Project-Images/blob/main/AirBnB_clone/images/image_5.jpg)
+![](https://github.com/Tafara-N/Project-Images/blob/main/AirBnB_clone/images/task_12/image_5.jpg)
 
 **Repo:**
 - GitHub repository: `AirBnB_clone_v2`
