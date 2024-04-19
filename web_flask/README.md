@@ -64,7 +64,7 @@ At the end of this project, you are expected to be able to [explain to anyone](h
 $ pip3 install Flask
 ```
 
-![](image.png)
+![](https://github.com/Tafara-N/Project-Images/blob/main/AirBnB_clone/images/hbnb_step3.png)
 
 ## Tasks
 
