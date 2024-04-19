@@ -12,7 +12,9 @@ Whitespace Control
 List of Control Structures (read up to “Call”)
 Flask
 Jinja
-Recommended YouTube playlist to get you started
+
+### Recommended YouTube playlist to get you started
+![(https://youtu.be/MwZwr5Tvyxo?list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH)]
 
 # Learning Objectives
 At the end of this project, you are expected to be able to [explain to anyone](https://intranet.alxswe.com/rltoken/fja4_zmJuVaRtHFviyVv9Q), **without the help of Google:**
