@@ -852,8 +852,6 @@ In the browser:
 
 ![](https://github.com/Tafara-N/Project-Images/blob/main/AirBnB_clone/images/task_11/image_4.jpg)
 
-![](https://github.com/Tafara-N/Project-Images/blob/main/AirBnB_clone/images/task_11/image_5.jpg)
-
 **Repo:**
 - GitHub repository: `AirBnB_clone_v2`
 - File: `web_flask/10-hbnb_filters.py, web_flask/templates/10-hbnb_filters.html, web_flask/static/`
