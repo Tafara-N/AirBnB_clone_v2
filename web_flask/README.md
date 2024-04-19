@@ -672,9 +672,8 @@ guillaume@ubuntu:~$
 
 
 **Repo:**
-
 - GitHub repository: `AirBnB_clone_v2`
-File: web_flask/8-cities_by_states.py, web_flask/templates/8-cities_by_states.html
+- File: `web_flask/8-cities_by_states.py, web_flask/templates/8-cities_by_states.html`
 
 ### 10. States and State
 
