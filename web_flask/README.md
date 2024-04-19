@@ -403,39 +403,46 @@ Find the city [City] (e3e36ded-fe56-44f5-bf08-8a27e2b30672) {'name': 'Napa', 'id
 Find the city [City] (12a58d70-e255-4c1e-8a68-7d5fb924d2d2) {'name': 'Sonoma', 'id': '12a58d70-e255-4c1e-8a68-7d5fb924d2d2', 'state_id': '5b8f1d55-e49c-44dd-ba6f-a3cf8489ae45', 'updated_at': datetime.datetime(2017, 12, 11, 19, 27, 52, 511513), 'created_at': datetime.datetime(2017, 12, 11, 19, 27, 52, 511432)} in the state [State] (5b8f1d55-e49c-44dd-ba6f-a3cf8489ae45) {'name': 'California', 'id': '5b8f1d55-e49c-44dd-ba6f-a3cf8489ae45', 'updated_at': datetime.datetime(2017, 12, 11, 19, 27, 52, 510038), 'created_at': datetime.datetime(2017, 12, 11, 19, 27, 52, 509950)}
 Find the city [City] (a693bdb9-e0ca-4521-adfd-e1a93c093b4b) {'name': 'Page', 'id': 'a693bdb9-e0ca-4521-adfd-e1a93c093b4b', 'state_id': 'a5e5311a-3c19-4995-9485-32c74411b416', 'updated_at': datetime.datetime(2017, 12, 11, 19, 27, 52, 512073), 'created_at': datetime.datetime(2017, 12, 11, 19, 27, 52, 511869)} in the state [State] (a5e5311a-3c19-4995-9485-32c74411b416) {'name': 'Arizona', 'id': 'a5e5311a-3c19-4995-9485-32c74411b416', 'updated_at': datetime.datetime(2017, 12, 11, 19, 27, 52, 510373), 'created_at': datetime.datetime(2017, 12, 11, 19, 27, 52, 510252)}
 guillaume@ubuntu:~/AirBnB_v2$
+```
+
 **Repo:**
-
 - GitHub repository: `AirBnB_clone_v2`
-File: models/engine/file_storage.py, models/engine/db_storage.py, models/state.py
+- File: `models/engine/file_storage.py, models/engine/db_storage.py, models/state.py`
 
-8. List of states
-mandatory
+### 8. List of states
+
 Write a script that starts a Flask web application:
 
-Your web application must be listening on 0.0.0.0, port 5000
-You must use storage for fetching data from the storage engine (FileStorage or DBStorage) => from models import storage and storage.all(...)
-After each request you must remove the current SQLAlchemy Session:
-Declare a method to handle @app.teardown_appcontext
-Call in this method storage.close()
-Routes:
-/states_list: display a HTML page: (inside the tag BODY)
-H1 tag: “States”
-UL tag: with the list of all State objects present in DBStorage sorted by name (A->Z) tip
-LI tag: description of one State: <state.id>: <B><state.name></B>
-Import this 7-dump to have some data
-You must use the option strict_slashes=False in your route definition
-IMPORTANT
+- Your web application must be listening on `0.0.0.0`, port `5000`
+- You must use `storage` for fetching data from the storage engine (`FileStorage` or `DBStorage`) => `from models import storage` and `storage.all(...)`
+- After each request you must remove the current SQLAlchemy Session:
+	- Declare a method to handle `@app.teardown_appcontext`
+	- Call in this method `storage.close()`
+- Routes:
+	- `/states_list`: display a HTML page: (inside the tag `BODY`)
+		- `H1` tag: “States”
+		- `UL` tag: with the list of all `State` objects present in `DBStorage` **sorted by** `name` (A->Z) [tip](https://intranet.alxswe.com/rltoken/2y_hunzGCCvSot06EW67UQ)
+			- `LI` tag: description of one `State`: `<state.id>: <B><state.name></B>`
+- Import this [7-dump](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/290/7-states_list.sql) to have some data
+- You must use the option `strict_slashes=False` in your route definition
 
-Make sure you have a running and valid setup_mysql_dev.sql in your AirBnB_clone_v2 repository (Task)
-Make sure all tables are created when you run echo "quit" | HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db ./console.py
+## IMPORTANT
+
+- Make sure you have a running and valid `setup_mysql_dev.sql` in your `AirBnB_clone_v2` repository ([Task](https://intranet.alxswe.com/rltoken/v5CSUMU7FY9wj_cnBY7P1A))
+- Make sure all tables are created when you run `echo "quit" | HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db ./console.py`
+
+```
 guillaume@ubuntu:~/AirBnB_v2$ curl -o 7-dump.sql "https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/290/7-states_list.sql"
 guillaume@ubuntu:~/AirBnB_v2$ cat 7-dump.sql | mysql -uroot -p
 Enter password:
 guillaume@ubuntu:~/AirBnB_v2$ HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db python3 -m web_flask.7-states_list
 * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
 ....
+```
+
 In another tab:
 
+```
 guillaume@ubuntu:~$ curl 0.0.0.0:5000/states_list ; echo ""
 <!DOCTYPE html>
 <HTML lang="en">
@@ -476,10 +483,11 @@ guillaume@ubuntu:~$ curl 0.0.0.0:5000/states_list ; echo ""
     </BODY>
 </HTML>
 guillaume@ubuntu:~$
-**Repo:**
+```
 
+**Repo:**
 - GitHub repository: `AirBnB_clone_v2`
-File: web_flask/7-states_list.py, web_flask/templates/7-states_list.html
+- File: `web_flask/7-states_list.py, web_flask/templates/7-states_list.html`
 
 ### 9. Cities by states
 
