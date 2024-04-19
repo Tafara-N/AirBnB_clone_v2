@@ -114,21 +114,26 @@ guillaume@ubuntu:~$
 Directory: web_flask
 File: 1-hbnb_route.py
 
-2. C is fun!
-mandatory
+### 2. C is fun!
+
 Write a script that starts a Flask web application:
 
-Your web application must be listening on 0.0.0.0, port 5000
-Routes:
-/: display “Hello HBNB!”
-/hbnb: display “HBNB”
-/c/<text>: display “C ” followed by the value of the text variable (replace underscore _ symbols with a space )
-You must use the option strict_slashes=False in your route definition
+- Your web application must be listening on `0.0.0.0`, port `5000`
+- Routes:
+	- `/`: display “Hello HBNB!”
+	- `/hbnb`: display “HBNB”
+	- `/c/<text>`: display “C ” followed by the value of the `text` variable (replace underscore `_` symbols with a space )
+- You must use the option `strict_slashes=False` in your route definition
+
+```
 guillaume@ubuntu:~/AirBnB_v2$ python3 -m web_flask.2-c_route
 * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
 ....
+```
+
 In another tab:
 
+```
 guillaume@ubuntu:~$ curl 0.0.0.0:5000/c/is_fun ; echo "" | cat -e
 C is fun$
 guillaume@ubuntu:~$ curl 0.0.0.0:5000/c/cool ; echo "" | cat -e
