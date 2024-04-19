@@ -57,12 +57,16 @@ You are not allowed to use !important or id (#... in the CSS file)
 All tags must be in uppercase
 Current screenshots have been done on Chrome 56.0.2924.87.
 No cross browsers
-More Info
-# Install Flask
+
+# More Info
+
+## Install Flask
 
 ```
 $ pip3 install Flask
 ```
+
+![](![alt text](image.png))
 
 ## Tasks
 
