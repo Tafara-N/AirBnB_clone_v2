@@ -13,7 +13,7 @@
 - [Jinja](https://intranet.alxswe.com/rltoken/2y_hunzGCCvSot06EW67UQ)
 
 ### Recommended YouTube playlist to get you started
-![](https://github.com/Tafara-N/Project-Images/blob/main/AirBnB_clone/images/Python_Flask_Tutorial.mp4)
+![](https://youtu.be/MwZwr5Tvyxo?si=rYNtBBlUSaBHi1dH)
 
 # Learning Objectives
 At the end of this project, you are expected to be able to [explain to anyone](https://intranet.alxswe.com/rltoken/fja4_zmJuVaRtHFviyVv9Q), **without the help of Google:**
