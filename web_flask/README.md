@@ -160,8 +160,11 @@ You must use the option strict_slashes=False in your route definition
 guillaume@ubuntu:~/AirBnB_v2$ python3 -m web_flask.3-python_route
 * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
 ....
+```
+
 In another tab:
 
+```
 guillaume@ubuntu:~$ curl -Ls 0.0.0.0:5000/python/is_magic ; echo "" | cat -e
 Python is magic$
 guillaume@ubuntu:~$ curl -Ls 0.0.0.0:5000/python ; echo "" | cat -e
@@ -169,11 +172,12 @@ Python is cool$
 guillaume@ubuntu:~$ curl -Ls 0.0.0.0:5000/python/ ; echo "" | cat -e
 Python is cool$
 guillaume@ubuntu:~$
-**Repo:**
+```
 
+**Repo:**
 - GitHub repository: `AirBnB_clone_v2`
-Directory: web_flask
-File: 3-python_route.py
+- Directory: `web_flask`
+- File: `3-python_route.py`
 
 ### 4. Is it a number?
 
