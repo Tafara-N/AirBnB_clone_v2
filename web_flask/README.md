@@ -702,19 +702,25 @@ LI tag: description of one City: <city.id>: <B><city.name></B>
 Otherwise:
 H1 tag: “Not found!”
 You must use the option strict_slashes=False in your route definition
-Import this 7-dump to have some data
-IMPORTANT
+Import this [7-dump]() to have some data
 
-Make sure you have a running and valid setup_mysql_dev.sql in your AirBnB_clone_v2 repository (Task)
-Make sure all tables are created when you run echo "quit" | HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db ./console.py
+## IMPORTANT
+
+- Make sure you have a running and valid `setup_mysql_dev.sql` in your `AirBnB_clone_v2` repository ([Task]())
+- Make sure all tables are created when you run `echo "quit" | HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db ./console.py`
+
+```
 guillaume@ubuntu:~/AirBnB_v2$ curl -o 7-dump.sql "https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/290/7-states_list.sql"
 guillaume@ubuntu:~/AirBnB_v2$ cat 7-dump.sql | mysql -uroot -p
 Enter password:
 guillaume@ubuntu:~/AirBnB_v2$ HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db python3 -m web_flask.9-states
 * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
 ....
+```
+
 In another tab:
 
+```
 guillaume@ubuntu:~$ curl 0.0.0.0:5000/states ; echo ""
 <!DOCTYPE html>
 <HTML lang="en">
@@ -838,15 +844,15 @@ guillaume@ubuntu:~/AirBnB_v2$ HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_p
 
 In the browser:
 
-![]()
+![](https://github.com/Tafara-N/Project-Images/blob/main/AirBnB_clone/images/task_11/image_1.jpg)
 
-![]()
+![](https://github.com/Tafara-N/Project-Images/blob/main/AirBnB_clone/images/task_11/image_2.jpg)
 
-![]()
+![](https://github.com/Tafara-N/Project-Images/blob/main/AirBnB_clone/images/task_11/image_3.jpg)
 
-![]()
+![](https://github.com/Tafara-N/Project-Images/blob/main/AirBnB_clone/images/task_11/image_4.jpg)
 
-![]()
+![](https://github.com/Tafara-N/Project-Images/blob/main/AirBnB_clone/images/task_11/image_5.jpg)
 
 **Repo:**
 - GitHub repository: `AirBnB_clone_v2`
