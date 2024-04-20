@@ -16,7 +16,6 @@ def hello_route():
     Returns:
         "Hello HBNB!"
     """
-
     return "Hello HBNB!"
 
 
