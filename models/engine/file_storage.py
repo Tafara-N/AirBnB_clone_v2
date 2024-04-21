@@ -5,90 +5,79 @@ This module defines a class to manage file storage for hbnb clone
 """
 
 import json
-from models.base_model import BaseModel
-from models.user import User
-from models.state import State
-from models.city import City
 from models.amenity import Amenity
+from models.base_model import BaseModel
+from models.city import City
 from models.place import Place
 from models.review import Review
-import shlex
+from models.state import State
+from models.user import User
+
+classes = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
+           "Place": Place, "Review": Review, "State": State, "User": User}
 
 
 class FileStorage:
-    """
-    This class manages storage of hbnb models in JSON format
+    """serializes instances to a JSON file & deserializes back to instances"""
 
-    Attributes:
-        __file_path: path to the JSON file
-        __objects: objects will be stored
-    """
-
-    __file_path = 'file.json'
+    __file_path = "file.json"  # String - JSON file path
+    # Dictionary - Will store all objects by <class name>.id
     __objects = {}
 
     def all(self, cls=None):
         """
-        Returns a dictionary of models currently in storage
+        Returns:
+            dictionary __objects
         """
 
-        dct = {}  # Moved dictionary up
-        if cls:
-            dictionary = self.__objects
-            for key in dictionary:
-                partition = key.replace(".", " ")
-                partition = shlex.split(partition)
-                if (partition[0] == cls.__name__):
-                    dct[key] = self.__objects[key]
-            return dct
-        else:
-            return self.__objects
+        if cls is not None:
+            new_dict = {}
+            for key, value in self.__objects.items():
+                if cls == value.__class__ or cls == value.__class__.__name__:
+                    new_dict[key] = value
+            return new_dict
+        return self.__objects
 
     def new(self, obj):
         """
-        Adds new object to storage dictionary
-
-        Args:
-            obj: Object
+        Sets in __objects the obj with key <obj class name>.id
         """
-
-        if obj:
-            key = "{}.{}".format(type(obj).__name__, obj.id)
+        if obj is not None:
+            key = obj.__class__.__name__ + "." + obj.id
             self.__objects[key] = obj
 
     def save(self):
-        """
-        Saves storage dictionary to file
-        """
-
-        temp = {}
-        for key, val in self.__objects.items():
-            temp[key] = val.to_dict()
-        with open(self.__file_path, 'w', encoding="UTF-8") as f:
-            json.dump(temp, f)
+        """serializes __objects to the JSON file (path: __file_path)"""
+        json_obj = {}
+        for key in self.__objects:
+            json_obj[key] = self.__objects[key].to_dict()
+        with open(self.__file_path, "w") as f:
+            json.dump(json_obj, f)
 
     def reload(self):
-        """Loads storage dictionary from file"""
+        """
+        Deserializing JSON files to __objects
+        """
 
         try:
-            with open(self.__file_path, 'r', encoding="UTF-8") as f:
-                for key, val in (json.load(f)).items():
-                    val = eval(val["__class__"]) (**val)
-                    self.__objects[key] = val
-        except FileNotFoundError:
+            with open(self.__file_path, "r") as f:
+                json_obj = json.load(f)
+            for key in json_obj:
+                self.__objects[key] = classes[json_obj[key]["__class__"]](**json_obj[key])
+        except:
             pass
 
     def delete(self, obj=None):
         """
-        Deleting an existing element
+        Delete obj from __objects if it"s inside
         """
-
-        if obj:
-            obj_key = "{}.{}".format(type(obj_key).__name__, obj.id)
-            del self.__objects[obj_key]
+        if obj is not None:
+            key = obj.__class__.__name__ + "." + obj.id
+            if key in self.__objects:
+                del self.__objects[key]
 
     def close(self):
         """
-        Calling reload()
+        Calling reload() method to deserialize JSON files to objects
         """
         self.reload()
