@@ -18,7 +18,7 @@ from models import *
 app = Flask(__name__)
 
 
-@app.route('/states_list', strict_slashes=False)
+@app.route("/states_list", strict_slashes=False)
 def states_list():
     """
     Displays an HTML page with the states listed in alphabetical order
