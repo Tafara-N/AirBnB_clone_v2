@@ -84,8 +84,8 @@ def numbers_and_evenness(n):
         evenness = "even"
     else:
         evenness = "odd"
-    return render_template("6-number_odd_or_even.html", n=n,
-    evenness=evenness)
+    return render_template(
+        "6-number_odd_or_even.html", n=n, evenness=evenness)
 
 
 if __name__ == "__main__":
