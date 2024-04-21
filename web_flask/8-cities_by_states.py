@@ -11,7 +11,7 @@ Script starts Flask web app, listens on `0.0.0.0:5000` with route:
 If a State object is found with this id:
     :H1 tag: "State: "
     :H3 tag: "Cities:"
-    :UL tag: with the list of City objects linked to the State sorted by name (A->Z)
+    :UL tag: List of City objects linked to the State sorted by name (A->Z)
         :LI tag: description of one City: <city.id>: <B><city.name></B>
     :Otherwise:
         :H1 tag: “Not found!”
