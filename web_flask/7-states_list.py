@@ -22,7 +22,7 @@ app.url_map.strict_slashes = False
 @app.teardown_appcontext
 def teardown_db(exc):
     """
-    Close DB_Storage on teardown
+    Closes DB_Storage on teardown
     """
     storage.close()
 
