@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-Distrubiting archives on the web servers based on the
+Distributing archives on the web servers based on the
 `2-do_deploy_web-static` file
 
 execute:
@@ -12,7 +12,7 @@ from fabric.api import env, local, put, run
 from datetime import datetime
 from os.path import exists, isdir
 
-env.hosts = ['100.26.159.205', '54.237.14.183']
+env.hosts = ['18.204.8.46', '34.203.77.40']
 
 
 def do_pack():
@@ -36,8 +36,8 @@ def do_deploy(archive_path):
     Distributing the archive to the web servers
 
     Servers:
-        web-01: 100.26.159.205
-        web-02: 54.237.14.183
+        web-01: 18.204.8.46
+        web-02: 34.203.77.40
     """
 
     if exists(archive_path) is False:
