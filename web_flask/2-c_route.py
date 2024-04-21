@@ -29,7 +29,7 @@ def hbnb():
 
 
 @app.route('/c/<text>', strict_slashes=False)
-def cisfun(text):
+def c_is_fun(text):
     """
     Returns:
         "C" then value of the text variable
