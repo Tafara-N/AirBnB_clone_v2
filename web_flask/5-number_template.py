@@ -12,7 +12,7 @@ Script starts Flask web app, listens on `0.0.0.0:5000` with route:
         :H1 tag: "Number: n" inside the tag BODY
 """
 
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
