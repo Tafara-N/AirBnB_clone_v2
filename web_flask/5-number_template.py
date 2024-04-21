@@ -66,7 +66,7 @@ def im_a_number(n):
 
 
 @app.route("/number_template/<int:n>", strict_slashes=False)
-def numbersandtemplates(n):
+def numbers_and_templates(n):
     """
     Displays an HTML page only if `n` is an int
     """
