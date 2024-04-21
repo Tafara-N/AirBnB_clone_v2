@@ -18,6 +18,7 @@ def filters():
     """
     Displays an HTML page from 'static'
     """
+
     states = storage.all("State").values()
     amenities = storage.all("Amenity").values()
     return render_template(
