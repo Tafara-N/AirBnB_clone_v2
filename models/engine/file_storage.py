@@ -18,9 +18,12 @@ classes = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
 
 
 class FileStorage:
-    """serializes instances to a JSON file & deserializes back to instances"""
-
+    """
+    Serializing instances to JSON file and
+    deserializing them back to instances
+    """
     __file_path = "file.json"  # String - JSON file path
+
     # Dictionary - Will store all objects by <class name>.id
     __objects = {}
 
@@ -63,7 +66,8 @@ class FileStorage:
             with open(self.__file_path, "r") as f:
                 json_obj = json.load(f)
             for key in json_obj:
-                self.__objects[key] = classes[json_obj[key]["__class__"]](**json_obj[key])
+                self.__objects[key] = classes[json_obj[key]["__class__"]](
+                    **json_obj[key])
         except:
             pass
 
