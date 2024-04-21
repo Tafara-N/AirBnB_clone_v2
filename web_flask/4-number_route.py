@@ -4,7 +4,10 @@
 Script starts Flask web app, listens on `0.0.0.0:5000` with route:
     /: Displays "Hello HBNB!"
     /hbnb: Displays "HBNB"
-    /c/<text>: Displays "C" then value of the text variable
+    /c/<text>: Displays "C ", then value of the text variable
+    /python/(<text>): Displays "Python ", then value of the text variable
+        :Default value of text is "is cool"
+    /number/<n>: Displays "n is a number" Only if `n` is an int
 """
 
 from flask import Flask
