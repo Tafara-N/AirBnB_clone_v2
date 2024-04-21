@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 
 """
-Distrubiting archives on the web servers based on the
+Distributing archives on the web servers based on the
 `1-pack_web_static.py` file
 """
 
 from fabric.api import put, run, env
 from os.path import exists
 
-env.hosts = ['100.26.159.205', '54.237.14.183']
+env.hosts = ['18.204.8.46', '34.203.77.40']
 
 
 def do_deploy(archive_path):
@@ -16,8 +16,8 @@ def do_deploy(archive_path):
     Distributing the archive to the web servers
 
     Servers:
-        web-01: 100.26.159.205
-        web-02: 54.237.14.183
+        web-01: 18.204.8.46
+        web-02: 34.203.77.40
     """
 
     if exists(archive_path) is False:
