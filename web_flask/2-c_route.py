@@ -34,7 +34,7 @@ def hbnb():
 def c_is_fun(text):
     """
     Returns:
-        "C" then value of the text variable
+        "C", then value of the text variable
     """
     return "C " + text.replace("_", " ")
 
