@@ -76,7 +76,7 @@ def numbers_and_templates(n):
 
 
 @app.route("/number_odd_or_even/<int:n>", strict_slashes=False)
-def numbersandevenness(n):
+def numbers_and_evenness(n):
     """
     Displays an HTML page only if `n` is an int
     """
