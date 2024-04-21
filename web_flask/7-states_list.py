@@ -3,9 +3,12 @@
 """
 Script starts Flask web app, listens on `0.0.0.0:5000` with route:
 /states_list: Displays an HTML page: (inside the tag BODY)
-    H1 tag: 'States"
-    UL tag: List of all State objects in DBStorage sorted by name (A->Z)
-        LI tag: Description of one State: <state.id>: <B><state.name></B>
+    :H1 tag: 'States"
+    :UL tag: Lists of all State objects in DBStorage sorted by name (A->Z)
+        : LI tag: Description of one State: <state.id>: <B><state.name></B> +
+        UL tag: Lists of City objects linked to the State sorted by name (A->Z)
+
+            :LI tag: Description of one State: <state.id>: <B><state.name></B>
 """
 
 from flask import Flask, render_template
