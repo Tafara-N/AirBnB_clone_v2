@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
 """
-Script starts Flask web app, listens on `0.0.0.0:5000`
-with route '/' displaying "Hello HBNB!"
+Script starts Flask web app, listens on `0.0.0.0:5000` with route:
+    /: Displays "Hello HBNB!"
 """
 
 from flask import Flask
