@@ -13,28 +13,30 @@ Script starts Flask web app, listens on `0.0.0.0:5000` with route:
 
 from flask import Flask, render_template
 from models import storage
-from models import *
+from models.state import State
 
 app = Flask(__name__)
-
-
-@app.route("/states_list", strict_slashes=False)
-def states_list():
-    """
-    Displays an HTML page with the states listed in alphabetical order
-    """
-
-    states = sorted(list(storage.all("State").values()), key=lambda x: x.name)
-    return render_template("7-states_list.html", states=states)
+app.url_map.strict_slashes = False
 
 
 @app.teardown_appcontext
-def teardown_db(exception):
+def teardown_db(exc):
     """
     Close DB_Storage on teardown
     """
     storage.close()
 
 
+@app.route('/states_list')
+def states_list():
+    """
+    Displays an HTML page with the states listed in alphabetical order
+    """
+
+    states = storage.all(State).values()
+    return render_template("7-states_list.html", states=states)
+
+
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host='0.0.0.0', port=5000)
+    app.run(debug=True)
