@@ -31,7 +31,9 @@ def do_pack():
     if local("tar -cvzf {} web_static".format(file)).failed is True:
         return None
 
-    os.chmod(file, stat.S_IWUSR | stat.S_IRUSR | stat.S_IRGRP | stat.S_IWGRP | stat.S_IROTH)
+    os.chmod(file,
+             stat.S_IWUSR | stat.S_IRUSR | stat.S_IRGRP |
+             stat.S_IWGRP | stat.S_IROTH)
 
     file_size = os.path.getsize(file)
     print(f"web_static packed: {file} -> {file_size}Bytes")
