@@ -4,9 +4,10 @@
 Generating a '.tgz' archive from the contents of the web_static folder
 """
 
-import os.path
 from datetime import datetime
 from fabric.api import local
+import os.path
+import stat
 
 
 def do_pack():
@@ -29,4 +30,10 @@ def do_pack():
             return None
     if local("tar -cvzf {} web_static".format(file)).failed is True:
         return None
+
+    os.chmod(file, stat.S_IWUSR | stat.S_IRUSR | stat.S_IRGRP | stat.S_IWGRP | stat.S_IROTH)
+
+    file_size = os.path.getsize(file)
+    print(f"web_static packed: {file} -> {file_size}Bytes")
+
     return file
