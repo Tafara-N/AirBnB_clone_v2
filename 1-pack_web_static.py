@@ -22,6 +22,7 @@ def do_pack():
         date_time.hour,
         date_time.minute,
         date_time.second)
+    print("Packing web_static to {}".format(file))
 
     if os.path.isdir("versions") is False:
         if local("mkdir -p versions").failed is True:
